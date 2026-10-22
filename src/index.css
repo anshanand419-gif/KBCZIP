@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-cinzel: 'Cinzel', serif;
+    --font-outfit: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html, body {
+    font-family: var(--font-outfit);
+    background-color: #030612;
+    color: #e2e8f0;
+    min-height: 100vh;
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button, input, select {
+    touch-action: manipulation;
+  }
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+
+.font-outfit {
+  font-family: var(--font-outfit);
+}
+
+.font-mono-nums {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Authentic KBC Hexagonal Chamfered Question & Option Shape */
+.kbc-hex-box {
+  clip-path: polygon(14px 0%, calc(100% - 14px) 0%, 100% 50%, calc(100% - 14px) 100%, 14px 100%, 0% 50%);
+}
+
+.kbc-hex-box-lg {
+  clip-path: polygon(22px 0%, calc(100% - 22px) 0%, 100% 50%, calc(100% - 22px) 100%, 22px 100%, 0% 50%);
+}
+
+/* Subtle KBC Studio Spotlight radial gradients & studio backdrop */
+.kbc-studio-stage {
+  background-image: 
+    radial-gradient(circle at 50% 18%, rgba(20, 38, 95, 0.45) 0%, rgba(5, 10, 30, 0.94) 65%, #030612 100%),
+    url('/src/assets/images/kbc_studio_stage_backdrop_1792686053729.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.kbc-gold-gradient {
+  background: linear-gradient(135deg, #FFF3B0 0%, #E5A93C 50%, #B8860B 100%);
+}
+
+.kbc-gold-border {
+  border-image: linear-gradient(to right, #785212, #f5c564, #ffd875, #f5c564, #785212) 1;
+}
+
+.kbc-metallic-surface {
+  background: linear-gradient(180deg, rgba(16, 28, 70, 0.95) 0%, rgba(8, 14, 40, 0.98) 100%);
+}
+
+/* Animations */
+@keyframes kbcHeartbeat {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+  }
+  50% {
+    transform: scale(1.015);
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.7);
+  }
+}
+
+.animate-kbc-heartbeat {
+  animation: kbcHeartbeat 1.2s infinite ease-in-out;
+}
+
+@keyframes kbcShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.animate-kbc-shake {
+  animation: kbcShake 0.4s ease-in-out;
+}
+
+@keyframes kbcFlash {
+  0% { opacity: 0; }
+  50% { opacity: 0.35; }
+  100% { opacity: 0; }
+}
+
+.animate-kbc-flash {
+  animation: kbcFlash 0.5s ease-out;
+}
